@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
         "projectName": "FileArchiveDemo",
         "projectPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
-        "packagesPath": "C:\\Users\\Raalnan5\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Alpha Omega\\.nuget\\packages\\",
         "outputPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Raalnan5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alpha Omega\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(, 4.7.32767]",
             "Microsoft.VisualBasic": "(, 10.3.32767]",
