@@ -1,0 +1,1 @@
+XCopy "C:\Users\oneid\source\repos\FileArchiveDemo\*.*" "D:\Users\oneid\source\repos\FileArchiveDemo\" /C /D /S /Y
