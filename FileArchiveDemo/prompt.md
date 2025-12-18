@@ -1,13 +1,14 @@
 This works right now, and it works well.
-We need to refactor it.
-For example, we need to separate the email sending into different components.
+We need to refactor it as a new application
 
-- Building the email body
-- Communication with db2 to get the contact info of the email recipients
-- Communication with the email server to send the email
-- Some higher level component to handle all of these
+For the new application, I want low level components (.cs) to handle individual actions, and higher level components (.cs) to coordinate the low level components.
 
-We want to be able to send the emails, or have that part fail quietly, writing an error log to the Inbound files directory if something goes wrong.
+Ideally, I want each component to be responsible for one thing.
+For example, if one component reads the list of files from the directory, another component is responsible for doing the thing with each individual file.
+
+I want you to give me the logical and conceptual breakdown of the various components that will be needed.
+
+Let's make it an outline.
 
 ## Program.md
 
