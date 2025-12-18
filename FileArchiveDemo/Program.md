@@ -131,14 +131,28 @@ var db2Repo = new Db2RecipientRepository(db2ConnString, db2Schema, db2Table);
 try
 {
     var emails = await db2Repo.GetActiveEmailsAsync();
-    Console.WriteLine($"[DB2] Active email recipients: {emails.Count}");
+    var startedUtc = DateTime.UtcNow;
+
+    // ... run ingest + pdf conversion here ...
+
+    var finishedUtc = DateTime.UtcNow;
+
+    var body = FileArchiveDemo.Email.ReportBuilder.BuildPdfRunReport(
+        startedUtc: startedUtc,
+        finishedUtc: finishedUtc,
+        ingestedCount: 0,          // wire these up next
+        pendingBefore: 0,          // wire these up next
+        convertedSuccess: 0,       // wire these up next
+        convertedFailed: 0,        // wire these up next
+        convertedFiles: new[] { "Alpha.doc -> Alpha.pdf" }, // demo sample
+        failedFiles: Array.Empty<string>()
+    );
 
     await emailSender.SendAsync(
         toEmails: emails,
-        subject: "FileArchiveDemo - SMTP test",
-        bodyText: "If you got this, SMTP sending from FileArchiveDemo works."
+        subject: "FileArchiveDemo - PDF Conversion Report",
+        bodyText: body
     );
-
     Console.WriteLine("[EMAIL] Sent SMTP test email to: " + string.Join(", ", emails));
 }
 catch (IBM.Data.Db2.DB2Exception ex)
