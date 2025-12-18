@@ -72,10 +72,15 @@ VALUES
   $Sha256,
   $OriginalBlob,
   0
-);
+)
+ON CONFLICT(Sha256) DO NOTHING;
 
-SELECT last_insert_rowid();
+SELECT Id
+FROM FileArchive
+WHERE Sha256 = $Sha256
+LIMIT 1;
 ";
+
 
         await using var conn = new SqliteConnection(_connString);
         await conn.OpenAsync();
@@ -96,8 +101,12 @@ SELECT last_insert_rowid();
         cmd.Parameters.Add("$OriginalBlob", SqliteType.Blob).Value = bytes;
 
         var idObj = await cmd.ExecuteScalarAsync();
+        if (idObj is null)
+            throw new InvalidOperationException("Insert/select failed to return an Id.");
+
         return Convert.ToInt64(idObj);
     }
+
 
     private static string? GuessContentType(string extension)
     {

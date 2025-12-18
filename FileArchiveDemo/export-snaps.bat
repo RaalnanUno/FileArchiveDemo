@@ -9,6 +9,7 @@ REM 1) Copy specific root files to .md (if present)
 REM ================================================
 for %%F in (
   "package.json"
+  "program.cs"
 ) do (
   if exist "%%~F" (
     copy /y "%%~F" "%%~dpnF.md" >nul
@@ -48,7 +49,8 @@ echo.
 
 REM 3a) Root-level md files we generated
 for %%F in (
-  "package.md"
+  "package.md",
+  "program.md"
 ) do (
   if exist "%%~F" (
     >>"prompt.md" echo ## %%~nxF

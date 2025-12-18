@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
         "projectName": "FileArchiveDemo",
         "projectPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
-        "packagesPath": "C:\\Users\\raaln\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Rahsa\\.nuget\\packages\\",
         "outputPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\raaln\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rahsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.14.1, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -69,6 +73,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[10.0.1, )"
+            },
+            "Net.IBM.Data.Db2": {
+              "target": "Package",
+              "version": "[8.0.0.400, )"
             }
           },
           "imports": [

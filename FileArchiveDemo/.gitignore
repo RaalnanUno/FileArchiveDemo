@@ -3,3 +3,6 @@
 *.db-wal
 # Obsidian workspace files
 .obsidian/
+
+bin/
+obj/
