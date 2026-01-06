@@ -259,3 +259,6 @@ C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\obj\Debug\net8.0\refi
 C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\obj\Debug\net8.0\FileArchiveDemo.pdb
 C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\obj\Debug\net8.0\FileArchiveDemo.genruntimeconfig.cache
 C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\obj\Debug\net8.0\ref\FileArchiveDemo.dll
+C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\bin\Debug\net8.0\InboundFiles\Bravo.docx
+C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\bin\Debug\net8.0\InboundFiles\Alpha.doc
+C:\source\repos\RaalnanUno\FileArchiveDemo\FileArchiveDemo\bin\Debug\net8.0\InboundFiles\AP Rahsaan Pringle 122025.doc

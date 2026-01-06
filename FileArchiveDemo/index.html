@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FileArchiveDemo — DB Viewer</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 16px; }
+    .muted { color: #666; }
+    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    input { padding: 8px; width: 360px; max-width: 90vw; }
+    button { padding: 6px 10px; cursor:pointer; }
+    button[disabled] { cursor:not-allowed; opacity:0.5; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 6px 8px; vertical-align: top; }
+    th { position: sticky; top: 0; background: #f6f6f6; }
+    .pill { display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; }
+  </style>
+</head>
+<body>
+  <h2>FileArchiveDemo — DB Viewer</h2>
+
+  <div class="row">
+    <div class="muted" id="meta">Loading…</div>
+  </div>
+
+  <div class="row" style="margin:12px 0;">
+    <input id="filter" placeholder="Filter by filename / extension / content type…" />
+    <button id="refresh">Refresh</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>FileName</th>
+        <th>Ext</th>
+        <th>ContentType</th>
+        <th>SizeBytes</th>
+        <th>FileBytes</th>
+        <th>PdfBytes</th>
+        <th>PDF?</th>
+        <th>CreatedUtc</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+<script>
+const API_BASE = "http://localhost:5055";
+
+async function fetchRows(q) {
+  const url = new URL(API_BASE + "/api/filearchive");
+  url.searchParams.set("take", "300");
+  if (q) url.searchParams.set("q", q);
+
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("API error: " + res.status);
+  return res.json();
+}
+
+function escapeHtml(v) {
+  if (v === null || v === undefined) return "";
+  return String(v).replace(/[&<>'"]/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+  }[c]));
+}
+
+function render(data) {
+  const meta = document.getElementById("meta");
+  meta.textContent = `API: ${API_BASE} • DB: ${data.dbPath} • Rows shown: ${data.count}`;
+
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+
+  for (const r of data.rows) {
+    const hasPdf = (r.PdfBytes || 0) > 0;
+
+    const origUrl = `${API_BASE}/api/filearchive/${r.Id}/original`;
+    const pdfUrl  = `${API_BASE}/api/filearchive/${r.Id}/pdf`;
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${r.Id ?? ""}</td>
+      <td>${escapeHtml(r.FileName)}</td>
+      <td>${escapeHtml(r.Extension)}</td>
+      <td>${escapeHtml(r.ContentType)}</td>
+      <td>${r.SizeBytes ?? ""}</td>
+      <td>${r.FileBytes ?? ""}</td>
+      <td>${r.PdfBytes ?? ""}</td>
+      <td><span class="pill">${hasPdf ? "Yes" : "No"}</span></td>
+      <td>${escapeHtml(r.CreatedUtc)}</td>
+      <td>
+        <a href="${origUrl}" target="_blank" rel="noopener">
+          <button>Original</button>
+        </a>
+        <a href="${hasPdf ? pdfUrl : '#'}" target="_blank" rel="noopener">
+          <button ${hasPdf ? "" : "disabled"}>PDF</button>
+        </a>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+async function load() {
+  const q = document.getElementById("filter").value.trim();
+  const data = await fetchRows(q);
+  render(data);
+}
+
+document.getElementById("refresh").addEventListener("click", () => load());
+document.getElementById("filter").addEventListener("input", () => load());
+
+load().catch(err => {
+  document.getElementById("meta").textContent = "Error: " + err.message;
+});
+</script>
+</body>
+</html>
