@@ -1419,7 +1419,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rahsa\\.nuget\\packages\\": {},
+    "C:\\Users\\Alpha Omega\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -1428,14 +1428,14 @@
       "projectUniqueName": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
       "projectName": "FileArchiveDemo",
       "projectPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\FileArchiveDemo.csproj",
-      "packagesPath": "C:\\Users\\Rahsa\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Alpha Omega\\.nuget\\packages\\",
       "outputPath": "C:\\source\\repos\\RaalnanUno\\FileArchiveDemo\\FileArchiveDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rahsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alpha Omega\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
